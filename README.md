@@ -1,1 +1,1 @@
-https://meet.google.com/qfi-vhca-woa
+Початкова загрузка файлів
