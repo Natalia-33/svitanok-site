@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Онлайн школа «Світанок» — 1–11 класи | Ліцензована</title>
+  <meta name="description" content="Ліцензована онлайн школа «Світанок». Навчання 1–11 класи: живі онлайн-уроки, домашні завдання, підтримка вчителів, зворотний зв'язок із батьками." />
+  <style>
+    :root {
+      --brand1: #ff6b6b;
+      --brand2: #ffd93d;
+      --brand3: #6bcBef;
+      --brand4: #4cd964;
+      --ink: #202124;
+      --ink-soft: #5f6368;
+      --bg: #fffdf8;
+      --card: #ffffff;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --maxw: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; color: var(--ink); background: var(--bg); }
+    a { color: #0b72ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header.nav {
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: rgba(255,255,255,.85);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav-inner {
+      max-width: var(--maxw); margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 12px; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .2px; }
+    .brand .logo {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: conic-gradient(from 180deg at 50% 50%, var(--brand1), var(--brand2), var(--brand3), var(--brand4), var(--brand1));
+      box-shadow: var(--shadow);
+    }
+    .brand .name { font-size: 1.05rem; }
+    nav.links { display: flex; gap: 14px; flex-wrap: wrap; }
+    nav.links a { padding: 8px 10px; border-radius: 10px; font-weight: 600; color: var(--ink); }
+    nav.links a:hover { background: rgba(0,0,0,.06); text-decoration: none; }
+    .cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; font-weight: 700; border: 0; cursor: pointer; background: linear-gradient(90deg, var(--brand1), var(--brand2)); color: #111; box-shadow: var(--shadow); }
+    .cta:hover { filter: brightness(1.03); }
+    .lang { padding: 8px 12px; border-radius: 999px; background: #f1f3f4; font-weight: 700; cursor: pointer; border: 0; }
+    section { padding: clamp(40px, 5vw, 72px) 16px; }
+    .container { max-width: var(--maxw); margin: 0 auto; }
+    .hero {
+      background: linear-gradient(180deg, rgba(255,219,118,.35), rgba(255,255,255,0));
+    }
+    .hero-wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(12px, 3.5vw, 40px); align-items: center; }
+    .hero h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.1; margin: 0 0 12px; }
+    .hero p.lead { font-size: clamp(1rem, 2.2vw, 1.25rem); color: var(--ink-soft); margin: 0 0 20px; }
+    .hero-card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; display: grid; gap: 12px;
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .badge { padding: 8px 12px; border-radius: 999px; background: #fff3c4; font-weight: 700; font-size: .92rem; }
+    .badge.blue { background: #e6f6ff; }
+    .badge.green { background: #e8ffe9; }
+    .subtle { color: var(--ink-soft); font-size: .95rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card {
+      background: var(--card); border-radius: var(--radius-sm); box-shadow: var(--shadow); padding: 18px;
+    }
+    h2 { margin: 0 0 14px; font-size: clamp(1.4rem, 3.2vw, 2rem); }
+    h3 { margin: 0 0 8px; font-size: 1.15rem; }
+    ul { margin: 0 0 0 18px; }
+    .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #f1f3f4; font-weight: 700; font-size: .9rem; }
+    .stripe {
+      background: linear-gradient(90deg, rgba(255,107,107,.12), rgba(255,217,61,.12), rgba(107,203,239,.12));
+      border-top: 1px solid rgba(0,0,0,.06);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,.08); text-align: left; }
+    .price { font-size: 1.4rem; font-weight: 800; }
+    .price small { font-weight: 600; color: var(--ink-soft); }
+    .plan { display: grid; gap: 8px; }
+    form { display: grid; gap: 10px; }
+    input, select, textarea {
+      width: 100%; padding: 12px 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,.15); font: inherit; background: #fff;
+    }
+    label { font-weight: 700; font-size: .95rem; }
+    .muted { color: var(--ink-soft); font-size: .9rem; }
+    .footer { background: #111; color: #f8f9fa; }
+    .footer a { color: #cde2ff; }
+    .cols { display: grid; grid-template-columns: 1.35fr 1fr; gap: 22px; }
+    .k12 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tag { font-weight: 800; font-size: .8rem; color: #333; background: #ffe; padding: 6px 10px; border-radius: 999px; display: inline-block; }
+    .lic { background: #f6fff6; border-left: 4px solid #34c759; padding: 10px 12px; border-radius: 10px; }
+    .contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .note { background: #fff8e1; border-left: 4px solid #ffcc00; padding: 10px 12px; border-radius: 10px; }
+    @media (max-width: 980px) {
+      .hero-wrap, .cols, .grid-3, .grid-2, .k12, .contact-cards { grid-template-columns: 1fr; }
+      nav.links { display: none; }
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .sep { height: 1px; background: rgba(0,0,0,.08); margin: 12px 0; }
+    .float { position: fixed; right: 16px; bottom: 16px; z-index: 999; }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="name" data-i18n="brand">Онлайн школа «Світанок»</div>
+      </div>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#about" data-i18n="nav.about">Про школу</a>
+        <a href="#programs" data-i18n="nav.programs">Програми</a>
+        <a href="#schedule" data-i18n="nav.schedule">Розклад</a>
+        <a href="#pricing" data-i18n="nav.pricing">Вартість</a>
+        <a href="#docs" data-i18n="nav.docs">Документи</a>
+        <a href="#faq" data-i18n="nav.faq">Питання</a>
+        <a href="#contacts" data-i18n="nav.contacts">Контакти</a>
+      </nav>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="lang" id="lang-toggle" aria-label="Перемкнути мову">UA / EN</button>
+        <a href="#enroll" class="cta" data-i18n="cta.apply">Записатися</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <h1 data-i18n="hero.title">Ліцензована онлайн школа <span class="pill">1–11 класи</span></h1>
+          <p class="lead" data-i18n="hero.lead">Живі онлайн-уроки, сучасні підручники, домашні завдання та турбота про кожного учня. Гнучкий розклад і постійний зв’язок із батьками.</p>
+          <div class="badges" role="list" aria-label="Key benefits">
+            <div class="badge" data-i18n="hero.badge1">Ліцензія на освітню діяльність</div>
+            <div class="badge blue" data-i18n="hero.badge2">Живі уроки + запис</div>
+            <div class="badge green" data-i18n="hero.badge3">Індивідуальний супровід</div>
+          </div>
+          <p class="subtle" data-i18n="hero.contact">Телефон: <a href="tel:+380988611467">+38 (098) 861-14-67</a> • Email: <a href="mailto:natashamelnyk55@gmail.com">natashamelnyk55@gmail.com</a></p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="cta" href="#programs" data-i18n="hero.viewPrograms">Дивитися програми</a>
+            <a class="cta" href="#enroll" style="background: linear-gradient(90deg, var(--brand3), var(--brand4));" data-i18n="hero.trial">Пробний урок</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-labelledby="hero-card-title">
+          <h3 id="hero-card-title" data-i18n="hero.quickApply">Швидка заявка на навчання</h3>
+          <form id="quick-form" action="mailto:natashamelnyk55@gmail.com" method="post" enctype="text/plain">
+            <label for="f1" data-i18n="form.child">Ім’я та прізвище дитини</label>
+            <input id="f1" name="Учень" autocomplete="name" placeholder="Напр.: Іван Попівняк" required />
+            <label for="f2" data-i18n="form.grade">Клас у 2025/2026</label>
+            <select id="f2" name="Клас" required>
+              <option value="" data-i18n="form.choose">Оберіть клас</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option>
+              <option>10</option><option>11</option>
+            </select>
+            <label for="f3" data-i18n="form.parentContact">Контакт батьків (телефон або email)</label>
+            <input id="f3" name="Контакт" placeholder="+380…" />
+            <label for="f4" data-i18n="form.comment">Коментар</label>
+            <textarea id="f4" name="Коментар" rows="3" placeholder="Зручний час, запитання тощо"></textarea>
+            <button class="cta" type="submit" aria-label="Надіслати заявку" data-i18n="form.send">Надіслати</button>
+            <div class="muted" data-i18n="form.privacy">Натискаючи «Надіслати», ви погоджуєтеся з обробкою персональних даних.</div>
+          </form>
+          <div class="note" data-i18n="form.integrate">
+            Щоб підключити Google Forms: Створіть форму → «Надіслати» → «</> Вставити» → замініть атрибут <span class="mono">action</span> форми на URL вашої форми.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LICENSE -->
+    <section class="container" id="license">
+      <div class="lic">
+        <strong data-i18n="license.title">Ліцензія:</strong> <span data-i18n="license.text">заклад має чинну ліцензію на провадження освітньої діяльності.</span>
+        <span class="muted" data-i18n="license.hint">Додайте серію/номер та дату: <span class="mono">Серія ХХ №000000 від 01.09.2024</span></span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h2 data-i18n="about.title">Про школу</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="about.missionTitle">Місія</h3>
+            <p class="subtle" data-i18n="about.mission">
+              Ми поєднуємо державний стандарт із сучасними цифровими інструментами, щоб кожна дитина навчалася безпечно, цікаво й ефективно — з будь-якої точки світу.
+            </p>
+            <h3 data-i18n="about.valuesTitle">Цінності</h3>
+            <ul>
+              <li data-i18n="about.val1">Повага й безпека: антибулінг, кібергігієна, ДБЖ.</li>
+              <li data-i18n="about.val2">Партнерство з батьками: регулярний зворотний звʼязок.</li>
+              <li data-i18n="about.val3">Практичність: проєкти, дебати, медіаграмотність.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 data-i18n="about.formatTitle">Формат навчання</h3>
+            <ul>
+              <li data-i18n="about.f1">Живі онлайн-уроки у невеликих групах + записи занять.</li>
+              <li data-i18n="about.f2">Домашні завдання з перевіркою та критеріями оцінювання.</li>
+              <li data-i18n="about.f3">Електронний щоденник і персональний куратор прогресу.</li>
+            </ul>
+            <div class="sep"></div>
+            <p class="muted" data-i18n="about.note">Після зарахування надаємо доступ до платформи та інструкції.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs">
+      <div class="container">
+        <h2 data-i18n="programs.title">Навчальні програми</h2>
+        <p class="subtle" data-i18n="programs.lead">Повна шкільна програма з 1 по 11 клас. Працюємо за державним стандартом.</p>
+        <div class="k12">
+          <div class="card">
+            <span class="tag" data-i18n="programs.primaryTag">Початкова школа 1–4</span>
+            <h3 data-i18n="programs.primaryTitle">Тепла адаптація та навички майбутнього</h3>
+            <ul>
+              <li data-i18n="programs.p1">Грамота, математика, «Я досліджую світ», мистецтво.</li>
+              <li data-i18n="programs.p2">Інтерактиви, міні-проєкти, щотижневі підсумки.</li>
+              <li data-i18n="programs.p3">Регулярний зворотний звʼязок батькам.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="tag" data-i18n="programs.middleTag">Середня школа 5–9</span>
+            <h3 data-i18n="programs.middleTitle">Системність, проєкти, самостійність</h3>
+            <ul>
+              <li data-i18n="programs.m1">Поглиблена англійська, математика, історія, природничі.</li>
+              <li data-i18n="programs.m2">Проєктні тижні, дебати, медіаграмотність.</li>
+              <li data-i18n="programs.m3">Підготовка до ДПА (9 клас).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="tag" data-i18n="programs.highTag">Старша школа 10–11</span>
+            <h3 data-i18n="programs.highTitle">Профіль і підготовка до НМТ</h3>
+            <ul>
+              <li data-i18n="programs.h1">Профільні курси (мовний, математичний тощо).</li>
+              <li data-i18n="programs.h2">Фокус на НМТ: тренування, пробні тести.</li>
+              <li data-i18n="programs.h3">Консультації щодо вступу та портфоліо.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="stripe">
+      <div class="container grid-3">
+        <div class="card">
+          <h3 data-i18n="feat.live">Живі уроки + записи</h3>
+          <p class="subtle" data-i18n="feat.liveText">Кожен урок проводиться у прямому етері. Запис доступний для повторення.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="feat.hw">Домашні та перевірка</h3>
+          <p class="subtle" data-i18n="feat.hwText">Завдання у зручних формах. Регулярні тематичні й семестрові роботи.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="feat.care">Куратор і батьки</h3>
+          <p class="subtle" data-i18n="feat.careText">Куратор стежить за прогресом. Чат та щомісячні зустрічі з батьками.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+      <div class="container">
+        <h2 data-i18n="schedule.title">Приклад розкладу</h2>
+        <p class="subtle" data-i18n="schedule.lead">Ранкові, денні та вечірні групи. Час — за Києвом.</p>
+        <div class="cols">
+          <div class="card">
+            <h3 data-i18n="schedule.primary">Початкова (1–4)</h3>
+            <table aria-label="Розклад для початкових класів">
+              <thead><tr><th data-i18n="schedule.day">День</th><th data-i18n="schedule.time">Час</th><th data-i18n="schedule.subjects">Предмети</th></tr></thead>
+              <tbody>
+                <tr><td data-i18n="schedule.monfri">Пн–Пт</td><td>09:00–11:30</td><td data-i18n="schedule.primarySubs">Українська, Математика, ЯДС</td></tr>
+                <tr><td data-i18n="schedule.wed">Ср</td><td>17:00–18:00</td><td data-i18n="schedule.club">Англійська (гурток)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <h3 data-i18n="schedule.midHigh">Середня/Старша (5–11)</h3>
+            <table aria-label="Розклад для середніх і старших класів">
+              <thead><tr><th data-i18n="schedule.group">Група</th><th data-i18n="schedule.time">Час</th><th data-i18n="schedule.format">Формат</th></tr></thead>
+              <tbody>
+                <tr><td data-i18n="schedule.morning">Ранкова</td><td>08:30–12:30</td><td data-i18n="schedule.core">Основні предмети + практика</td></tr>
+                <tr><td data-i18n="schedule.daygroup">Денна</td><td>13:30–17:30</td><td data-i18n="schedule.adv">Поглиблені курси</td></tr>
+                <tr><td data-i18n="schedule.evening">Вечірня</td><td>18:30–20:30</td><td data-i18n="schedule.nmt">Мікрогрупи/НМТ-підготовка</td></tr>
+              </tbody>
+            </table>
+            <p class="muted" data-i18n="schedule.note">Остаточний розклад узгодимо при зарахуванні.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="container">
+        <h2 data-i18n="pricing.title">Вартість навчання</h2>
+        <div class="grid-3">
+          <div class="card plan">
+            <h3 data-i18n="pricing.base">Базовий</h3>
+            <div class="price"><span data-i18n="pricing.basePrice">3 000 ₴/міс</span> <small data-i18n="pricing.group">групові заняття</small></div>
+            <ul>
+              <li data-i18n="pricing.base1">20–24 уроки/місяць</li>
+              <li data-i18n="pricing.base2">Домашні + перевірка</li>
+              <li data-i18n="pricing.base3">Запис занять</li>
+            </ul>
+            <a class="cta" href="#enroll" data-i18n="pricing.choose">Обрати</a>
+          </div>
+          <div class="card plan">
+            <h3 data-i18n="pricing.adv">Поглиблений</h3>
+            <div class="price"><span data-i18n="pricing.advPrice">4 500 ₴/міс</span> <small data-i18n="pricing.plus">+ факультативи</small></div>
+            <ul>
+              <li data-i18n="pricing.adv1">Додаткові гуртки та проєкти</li>
+              <li data-i18n="pricing.adv2">Персональний куратор</li>
+              <li data-i18n="pricing.adv3">Щомісячні звіти батькам</li>
+            </ul>
+            <a class="cta" href="#enroll" data-i18n="pricing.choose">Обрати</a>
+          </div>
+          <div class="card plan">
+            <h3 data-i18n="pricing.ind">Індивідуальний</h3>
+            <div class="price"><span data-i18n="pricing.indPrice">від 350 ₴/год</span> <small data-i18n="pricing.oneone">1-на-1</small></div>
+            <ul>
+              <li data-i18n="pricing.ind1">Персональна траєкторія</li>
+              <li data-i18n="pricing.ind2">Гнучкий розклад</li>
+              <li data-i18n="pricing.ind3">Фокус на НМТ</li>
+            </ul>
+            <a class="cta" href="#enroll" data-i18n="pricing.apply">Записатися</a>
+          </div>
+        </div>
+        <p class="muted" data-i18n="pricing.note">* Актуальні ціни уточнюйте при записі. Можливі знижки для родин/сіблінгів.</p>
+      </div>
+    </section>
+
+    <!-- ADMISSION DOCS -->
+    <section id="docs" class="stripe">
+      <div class="container">
+        <h2 data-i18n="docs.title">Документи для зарахування</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="docs.required">Обов’язково</h3>
+            <ul>
+              <li data-i18n="docs.d1">Заява від одного з батьків/опікунів</li>
+              <li data-i18n="docs.d2">Копія свідоцтва про народження</li>
+              <li data-i18n="docs.d3">Фото 3×4 (за потреби)</li>
+              <li data-i18n="docs.d4">Копії попередніх оцінок/табеля (за наявності)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 data-i18n="docs.extra">Додатково</h3>
+            <ul>
+              <li data-i18n="docs.e1">Медична довідка (за вимогами)</li>
+              <li data-i18n="docs.e2">Згода на обробку персональних даних</li>
+              <li data-i18n="docs.e3">Договір про надання освітніх послуг</li>
+            </ul>
+            <div class="note" data-i18n="docs.note">Шаблони заяв та договору можна надіслати на email після запиту.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENROLL -->
+    <section id="enroll">
+      <div class="container cols">
+        <div>
+          <h2 data-i18n="enroll.title">Запис до «Світанку»</h2>
+          <p class="subtle" data-i18n="enroll.lead">Заповніть форму — підберемо зручний формат (ранок/день/вечір) або індивідуальні заняття.</p>
+          <form id="enroll-form" action="mailto:natashamelnyk55@gmail.com" method="post" enctype="text/plain">
+            <label for="g1" data-i18n="form.gradeShort">Клас</label>
+            <select id="g1" name="Клас" required>
+              <option value="" data-i18n="form.choose">Оберіть клас</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option>
+              <option>10</option><option>11</option>
+            </select>
+            <label for="p1" data-i18n="form.parent">ПІБ одного з батьків</label>
+            <input id="p1" name="Батько/Мати" placeholder="Напр.: Мельник Наталія" autocomplete="name" />
+            <label for="c1" data-i18n="form.phone">Телефон</label>
+            <input id="c1" name="Телефон" placeholder="+380…" inputmode="tel" autocomplete="tel" />
+            <label for="e1" data-i18n="form.email">Електронна пошта</label>
+            <input id="e1" name="Email" type="email" placeholder="name@example.com" autocomplete="email" />
+            <label for="t1" data-i18n="form.time">Зручний час</label>
+            <select id="t1" name="Час">
+              <option data-i18n="form.morning">Ранок</option><option data-i18n="form.day">День</option><option data-i18n="form.evening">Вечір</option><option data-i18n="form.any">Будь-коли</option>
+            </select>
+            <label for="m1" data-i18n="form.comment">Коментар</label>
+            <textarea id="m1" name="Коментар" rows="4" placeholder="Питання, побажання, особливі потреби"></textarea>
+            <button class="cta" type="submit" data-i18n="form.send">Надіслати</button>
+            <a id="mailto-link" class="muted" href="#" style="margin-top:6px; display:inline-block;" data-i18n="form.mailto">Або надіслати email вручну</a>
+            <div class="note" style="margin-top:10px;" data-i18n="form.integrate2">
+              Підключення Google Forms/CRM: замініть <span class="mono">action</span> форми на ваш URL приймання заявок.
+            </div>
+          </form>
+        </div>
+        <div class="card">
+          <h3 data-i18n="enroll.next">Що відбувається далі?</h3>
+          <ol>
+            <li data-i18n="enroll.n1">Зв’язуємося з вами у зручний час.</li>
+            <li data-i18n="enroll.n2">Проводимо пробний урок і діагностику рівня.</li>
+            <li data-i18n="enroll.n3">Узгоджуємо розклад та програму — стартуємо!</li>
+          </ol>
+          <div class="sep"></div>
+          <h3 data-i18n="enroll.docs">Документи</h3>
+          <ul>
+            <li data-i18n="docs.d1">Заява від одного з батьків/опікунів</li>
+            <li data-i18n="docs.d2">Копія свідоцтва про народження</li>
+            <li data-i18n="docs.d4">Копії попередніх оцінок/табеля (за наявності)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2 data-i18n="faq.title">Часті запитання</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="faq.q1">Чи є у вас ліцензія?</h3>
+            <p class="subtle" data-i18n="faq.a1">Так, школа має чинну ліцензію. У розділі «Ліцензія» вкажіть серію/номер і дату видачі.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="faq.q2">Що, якщо пропустили урок?</h3>
+            <p class="subtle" data-i18n="faq.a2">Доступний запис заняття, а також консультації з учителем або куратором.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="faq.q3">Як відбувається оцінювання?</h3>
+            <p class="subtle" data-i18n="faq.a3">Поточні роботи, тести, проєкти, семестрові підсумки. Прозорі критерії та електронний щоденник.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="faq.q4">Чи можна змінювати розклад?</h3>
+            <p class="subtle" data-i18n="faq.a4">Так, формуємо групи з урахуванням часових поясів і сімейної логістики.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="stripe">
+      <div class="container">
+        <h2 data-i18n="contacts.title">Контакти</h2>
+        <div class="contact-cards">
+          <div class="card">
+            <h3 data-i18n="contacts.phone">Телефон</h3>
+            <p><a href="tel:+380988611467">+38 (098) 861-14-67</a></p>
+          </div>
+          <div class="card">
+            <h3>Email</h3>
+            <p><a href="mailto:natashamelnyk55@gmail.com">natashamelnyk55@gmail.com</a></p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="contacts.hours">Графік</h3>
+            <p data-i18n="contacts.hoursText">Пн–Пт 09:00–19:00, Сб 10:00–14:00</p>
+          </div>
+        </div>
+        <p class="muted" data-i18n="contacts.legal">Юридична інформація, адреса та реквізити додаються після реєстрації домену/сайту.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <section class="container" style="padding: 32px 16px;">
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <strong data-i18n="brand">Онлайн школа «Світанок»</strong><br/>
+          <span class="muted" style="color:#c7cad1;" data-i18n="footer.subtitle">Ліцензована дистанційна освіта для учнів 1–11 класів.</span>
+        </div>
+      </div>
+      <div class="sep" style="background: rgba(255,255,255,.2); margin: 16px 0;"></div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:space-between; align-items:center;">
+        <div class="muted" style="color:#c7cad1;">© <span id="y"></span> <span data-i18n="brand">«Світанок»</span>. <span data-i18n="footer.rights">Усі права захищено.</span></div>
+        <div class="muted" style="color:#c7cad1;"><span data-i18n="footer.privacy">Політика конфіденційності</span> • <span data-i18n="footer.offer">Публічна оферта</span></div>
+      </div>
+    </section>
+  </footer>
+
+  <a class="cta float" href="#enroll" aria-label="Apply now" data-i18n="cta.apply">Записатися</a>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Smooth anchor scroll (reduced-motion aware)
+    (() => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, '', '#' + id);
+          }
+        });
+      });
+    })();
+
+    // Mailto helper for the main enroll form
+    document.getElementById('mailto-link').addEventListener('click', (e) => {
+      e.preventDefault();
+      const g = document.getElementById('g1').value || '';
+      const p = document.getElementById('p1').value || '';
+      const c = document.getElementById('c1').value || '';
+      const em = document.getElementById('e1').value || '';
+      const t = document.getElementById('t1').value || '';
+      const m = (document.getElementById('m1').value || '').replace(/\n/g, '%0D%0A');
+      const subject = encodeURIComponent('Заявка: Онлайн школа «Світанок»');
+      const body = encodeURIComponent(
+        `Клас: ${g}\nБатько/Мати: ${p}\nТелефон: ${c}\nEmail: ${em}\nЗручний час: ${t}\nКоментар: ${decodeURIComponent(m)}`
+      );
+      window.location.href = `mailto:natashamelnyk55@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    // i18n dictionary (UA -> EN)
+    const dict = {
+      'brand': {'uk':'Онлайн школа «Світанок»','en':'Online School “Svitanok”'},
+      'nav.about': {'uk':'Про школу','en':'About'},
+      'nav.programs': {'uk':'Програми','en':'Programs'},
+      'nav.schedule': {'uk':'Розклад','en':'Schedule'},
+      'nav.pricing': {'uk':'Вартість','en':'Pricing'},
+      'nav.docs': {'uk':'Документи','en':'Admission'},
+      'nav.faq': {'uk':'Питання','en':'FAQ'},
+      'nav.contacts': {'uk':'Контакти','en':'Contacts'},
+      'cta.apply': {'uk':'Записатися','en':'Apply'},
+
+      'hero.title': {'uk':'Ліцензована онлайн школа <span class="pill">1–11 класи</span>','en':'Licensed Online School <span class="pill">Grades 1–11</span>'},
+      'hero.lead': {'uk':'Живі онлайн-уроки, сучасні підручники, домашні завдання та турбота про кожного учня. Гнучкий розклад і постійний зв’язок із батьками.','en':'Live online lessons, modern textbooks, homework with feedback, and care for every student. Flexible schedules and ongoing parent communication.'},
+      'hero.badge1': {'uk':'Ліцензія на освітню діяльність','en':'Licensed education provider'},
+      'hero.badge2': {'uk':'Живі уроки + запис','en':'Live lessons + recordings'},
+      'hero.badge3': {'uk':'Індивідуальний супровід','en':'Individual support'},
+      'hero.contact': {'uk':'Телефон: <a href="tel:+380988611467">+38 (098) 861-14-67</a> • Email: <a href="mailto:natashamelnyk55@gmail.com">natashamelnyk55@gmail.com</a>','en':'Phone: <a href="tel:+380988611467">+38 (098) 861-14-67</a> • Email: <a href="mailto:natashamelnyk55@gmail.com">natashamelnyk55@gmail.com</a>'},
+      'hero.viewPrograms': {'uk':'Дивитися програми','en':'See programs'},
+      'hero.trial': {'uk':'Пробний урок','en':'Trial lesson'},
+      'hero.quickApply': {'uk':'Швидка заявка на навчання','en':'Quick enrollment form'},
+
+      'form.child': {'uk':'Ім’я та прізвище дитини','en':'Child’s full name'},
+      'form.grade': {'uk':'Клас у 2025/2026','en':'Grade in 2025/2026'},
+      'form.gradeShort': {'uk':'Клас','en':'Grade'},
+      'form.choose': {'uk':'Оберіть клас','en':'Choose grade'},
+      'form.parentContact': {'uk':'Контакт батьків (телефон або email)','en':'Parent contact (phone or email)'},
+      'form.comment': {'uk':'Коментар','en':'Comment'},
+      'form.send': {'uk':'Надіслати','en':'Send'},
+      'form.privacy': {'uk':'Натискаючи «Надіслати», ви погоджуєтеся з обробкою персональних даних.','en':'By clicking “Send”, you agree to personal data processing.'},
+      'form.integrate': {'uk':'Щоб підключити Google Forms: Створіть форму → «Надіслати» → «</> Вставити» → замініть атрибут action форми на URL вашої форми.','en':'To connect Google Forms: Create a form → “Send” → “</> Embed” → replace this form’s action with your form URL.'},
+      'form.parent': {'uk':'ПІБ одного з батьків','en':'Parent/guardian full name'},
+      'form.phone': {'uk':'Телефон','en':'Phone'},
+      'form.email': {'uk':'Електронна пошта','en':'Email'},
+      'form.time': {'uk':'Зручний час','en':'Preferred time'},
+      'form.morning': {'uk':'Ранок','en':'Morning'},
+      'form.day': {'uk':'День','en':'Day'},
+      'form.evening': {'uk':'Вечір','en':'Evening'},
+      'form.any': {'uk':'Будь-коли','en':'Any time'},
+      'form.mailto': {'uk':'Або надіслати email вручну','en':'Or send an email manually'},
+      'form.integrate2': {'uk':'Підключення Google Forms/CRM: замініть action форми на ваш URL приймання заявок.','en':'Connect Google Forms/CRM: replace the form action with your submission endpoint.'},
+
+      'license.title': {'uk':'Ліцензія:','en':'License:'},
+      'license.text': {'uk':'заклад має чинну ліцензію на провадження освітньої діяльності.','en':'the institution holds a valid license to provide educational services.'},
+      'license.hint': {'uk':'Додайте серію/номер та дату: <span class="mono">Серія ХХ №000000 від 01.09.2024</span>','en':'Add series/number and date: <span class="mono">Series XX №000000 dated 01.09.2024</span>'},
+
+      'about.title': {'uk':'Про школу','en':'About the School'},
+      'about.missionTitle': {'uk':'Місія','en':'Mission'},
+      'about.mission': {'uk':'Ми поєднуємо державний стандарт із сучасними цифровими інструментами, щоб кожна дитина навчалася безпечно, цікаво й ефективно — з будь-якої точки світу.','en':'We combine the national curriculum with modern digital tools so every child can learn safely, engagingly, and effectively from anywhere.'},
+      'about.valuesTitle': {'uk':'Цінності','en':'Values'},
+      'about.val1': {'uk':'Повага й безпека: антибулінг, кібергігієна, ДБЖ.','en':'Respect and safety: anti-bullying, cyber hygiene, life safety.'},
+      'about.val2': {'uk':'Партнерство з батьками: регулярний зворотний звʼязок.','en':'Parent partnership: regular feedback.'},
+      'about.val3': {'uk':'Практичність: проєкти, дебати, медіаграмотність.','en':'Practicality: projects, debates, media literacy.'},
+      'about.formatTitle': {'uk':'Формат навчання','en':'Learning format'},
+      'about.f1': {'uk':'Живі онлайн-уроки у невеликих групах + записи занять.','en':'Live online lessons in small groups + recordings.'},
+      'about.f2': {'uk':'Домашні завдання з перевіркою та критеріями оцінювання.','en':'Homework with feedback and clear rubrics.'},
+      'about.f3': {'uk':'Електронний щоденник і персональний куратор прогресу.','en':'e-Diary and a personal progress curator.'},
+      'about.note': {'uk':'Після зарахування надаємо доступ до платформи та інструкції.','en':'After enrollment we provide platform access and instructions.'},
+
+      'programs.title': {'uk':'Навчальні програми','en':'Programs'},
+      'programs.lead': {'uk':'Повна шкільна програма з 1 по 11 клас. Працюємо за державним стандартом.','en':'Full curriculum for grades 1–11 aligned with national standards.'},
+      'programs.primaryTag': {'uk':'Початкова школа 1–4','en':'Primary 1–4'},
+      'programs.primaryTitle': {'uk':'Тепла адаптація та навички майбутнього','en':'Warm adaptation and future skills'},
+      'programs.p1': {'uk':'Грамота, математика, «Я досліджую світ», мистецтво.','en':'Literacy, math, world discovery, arts.'},
+      'programs.p2': {'uk':'Інтерактиви, міні-проєкти, щотижневі підсумки.','en':'Interactive tasks, mini-projects, weekly check-ins.'},
+      'programs.p3': {'uk':'Регулярний зворотний звʼязок батькам.','en':'Regular feedback to parents.'},
+      'programs.middleTag': {'uk':'Середня школа 5–9','en':'Middle 5–9'},
+      'programs.middleTitle': {'uk':'Системність, проєкти, самостійність','en':'Structure, projects, independence'},
+      'programs.m1': {'uk':'Поглиблена англійська, математика, історія, природничі.','en':'Advanced English, math, history, sciences.'},
+      'programs.m2': {'uk':'Проєктні тижні, дебати, медіаграмотність.','en':'Project weeks, debates, media literacy.'},
+      'programs.m3': {'uk':'Підготовка до ДПА (9 клас).','en':'Preparation for state exams (grade 9).'},
+      'programs.highTag': {'uk':'Старша школа 10–11','en':'High 10–11'},
+      'programs.highTitle': {'uk':'Профіль і підготовка до НМТ','en':'Majors and NMT prep'},
+      'programs.h1': {'uk':'Профільні курси (мовний, математичний тощо).','en':'Profile tracks (language, math, etc.).'},
+      'programs.h2': {'uk':'Фокус на НМТ: тренування, пробні тести.','en':'Focus on NMT: drills and mock tests.'},
+      'programs.h3': {'uk':'Консультації щодо вступу та портфоліо.','en':'Admissions guidance and portfolio.'},
+
+      'feat.live': {'uk':'Живі уроки + записи','en':'Live lessons + recordings'},
+      'feat.liveText': {'uk':'Кожен урок проводиться у прямому етері. Запис доступний для повторення.','en':'Every class is live; recordings are available.'},
+      'feat.hw': {'uk':'Домашні та перевірка','en':'Homework and review'},
+      'feat.hwText': {'uk':'Завдання у зручних формах. Регулярні тематичні й семестрові роботи.','en':'Convenient assignments. Regular unit and term work.'},
+      'feat.care': {'uk':'Куратор і батьки','en':'Advisor and parents'},
+      'feat.careText': {'uk':'Куратор стежить за прогресом. Чат та щомісячні зустрічі.','en':'Advisor tracks progress. Chat and monthly meetings.'},
+
+      'schedule.title': {'uk':'Приклад розкладу','en':'Sample schedule'},
+      'schedule.lead': {'uk':'Ранкові, денні та вечірні групи. Час — за Києвом.','en':'Morning, day, and evening groups. All times Kyiv.'},
+      'schedule.primary': {'uk':'Початкова (1–4)','en':'Primary (1–4)'},
+      'schedule.day': {'uk':'День','en':'Day'},
+      'schedule.time': {'uk':'Час','en':'Time'},
+      'schedule.subjects': {'uk':'Предмети','en':'Subjects'},
+      'schedule.monfri': {'uk':'Пн–Пт','en':'Mon–Fri'},
+      'schedule.wed': {'uk':'Ср','en':'Wed'},
+      'schedule.club': {'uk':'Англійська (гурток)','en':'English (club)'},
+      'schedule.primarySubs': {'uk':'Українська, Математика, ЯДС','en':'Ukrainian, Math, World Discovery'},
+      'schedule.midHigh': {'uk':'Середня/Старша (5–11)','en':'Middle/High (5–11)'},
+      'schedule.group': {'uk':'Група','en':'Group'},
+      'schedule.format': {'uk':'Формат','en':'Format'},
+      'schedule.morning': {'uk':'Ранкова','en':'Morning'},
+      'schedule.daygroup': {'uk':'Денна','en':'Day'},
+      'schedule.evening': {'uk':'Вечірня','en':'Evening'},
+      'schedule.core': {'uk':'Основні предмети + практика','en':'Core subjects + practice'},
+      'schedule.adv': {'uk':'Поглиблені курси','en':'Advanced courses'},
+      'schedule.nmt': {'uk':'Мікрогрупи/НМТ-підготовка','en':'Micro-groups/NMT prep'},
+      'schedule.note': {'uk':'Остаточний розклад узгодимо при зарахуванні.','en':'Final schedule is agreed upon enrollment.'},
+
+      'pricing.title': {'uk':'Вартість навчання','en':'Tuition fees'},
+      'pricing.base': {'uk':'Базовий','en':'Basic'},
+      'pricing.basePrice': {'uk':'3 000 ₴/міс','en':'₴3,000/month'},
+      'pricing.group': {'uk':'групові заняття','en':'group classes'},
+      'pricing.base1': {'uk':'20–24 уроки/місяць','en':'20–24 lessons/month'},
+      'pricing.base2': {'uk':'Домашні + перевірка','en':'Homework + review'},
+      'pricing.base3': {'uk':'Запис занять','en':'Recordings'},
+      'pricing.choose': {'uk':'Обрати','en':'Choose'},
+      'pricing.adv': {'uk':'Поглиблений','en':'Advanced'},
+      'pricing.advPrice': {'uk':'4 500 ₴/міс','en':'₴4,500/month'},
+      'pricing.plus': {'uk':'+ факультативи','en':'+ electives'},
+      'pricing.adv1': {'uk':'Додаткові гуртки та проєкти','en':'Extra clubs and projects'},
+      'pricing.adv2': {'uk':'Персональний куратор','en':'Personal advisor'},
+      'pricing.adv3': {'uk':'Щомісячні звіти батькам','en':'Monthly parent reports'},
+      'pricing.ind': {'uk':'Індивідуальний','en':'Individual'},
+      'pricing.indPrice': {'uk':'від 350 ₴/год','en':'from ₴350/hour'},
+      'pricing.oneone': {'uk':'1-на-1','en':'1-on-1'},
+      'pricing.ind1': {'uk':'Персональна траєкторія','en':'Personal trajectory'},
+      'pricing.ind2': {'uk':'Гнучкий розклад','en':'Flexible schedule'},
+      'pricing.ind3': {'uk':'Фокус на НМТ','en':'NMT focus'},
+      'pricing.apply': {'uk':'Записатися','en':'Apply'},
+      'pricing.note': {'uk':'* Актуальні ціни уточнюйте при записі. Можливі знижки для родин/сіблінгів.','en':'* Confirm current prices upon enrollment. Family/sibling discounts available.'},
+
+      'docs.title': {'uk':'Документи для зарахування','en':'Admission documents'},
+      'docs.required': {'uk':'Обов’язково','en':'Required'},
+      'docs.extra': {'uk':'Додатково','en':'Optional'},
+      'docs.d1': {'uk':'Заява від одного з батьків/опікунів','en':'Application from a parent/guardian'},
+      'docs.d2': {'uk':'Копія свідоцтва про народження','en':'Copy of birth certificate'},
+      'docs.d3': {'uk':'Фото 3×4 (за потреби)','en':'Photo 3×4 (if needed)'},
+      'docs.d4': {'uk':'Копії попередніх оцінок/табеля (за наявності)','en':'Copies of previous grades/report (if available)'},
+      'docs.e1': {'uk':'Медична довідка (за вимогами)','en':'Medical certificate (if required)'},
+      'docs.e2': {'uk':'Згода на обробку персональних даних','en':'Consent for personal data processing'},
+      'docs.e3': {'uk':'Договір про надання освітніх послуг','en':'Education services agreement'},
+      'docs.note': {'uk':'Шаблони заяв та договору можна надіслати на email після запиту.','en':'Templates can be emailed upon request.'},
+
+      'enroll.title': {'uk':'Запис до «Світанку»','en':'Enroll at “Svitanok”'},
+      'enroll.lead': {'uk':'Заповніть форму — підберемо зручний формат (ранок/день/вечір) або індивідуальні заняття.','en':'Fill in the form — we will offer a convenient schedule (morning/day/evening) or 1-on-1.'},
+      'enroll.next': {'uk':'Що відбувається далі?','en':'What happens next?'},
+      'enroll.n1': {'uk':'Зв’язуємося з вами у зручний час.','en':'We will contact you at a convenient time.'},
+      'enroll.n2': {'uk':'Проводимо пробний урок і діагностику рівня.','en':'Trial lesson and level assessment.'},
+      'enroll.n3': {'uk':'Узгоджуємо розклад та програму — стартуємо!','en':'Agree on schedule and program — we start!'},
+      'enroll.docs': {'uk':'Документи','en':'Documents'},
+
+      'faq.title': {'uk':'Часті запитання','en':'FAQ'},
+      'faq.q1': {'uk':'Чи є у вас ліцензія?','en':'Do you have a license?'},
+      'faq.a1': {'uk':'Так, школа має чинну ліцензію. У розділі «Ліцензія» вкажіть серію/номер і дату видачі.','en':'Yes, the school has a valid license. See the “License” section for series/number and date.'},
+      'faq.q2': {'uk':'Що, якщо пропустили урок?','en':'What if we miss a lesson?'},
+      'faq.a2': {'uk':'Доступний запис заняття, а також консультації з учителем або куратором.','en':'Recording is available; teacher/advisor consultations too.'},
+      'faq.q3': {'uk':'Як відбувається оцінювання?','en':'How are students assessed?'},
+      'faq.a3': {'uk':'Поточні роботи, тести, проєкти, семестрові підсумки. Прозорі критерії та електронний щоденник.','en':'Ongoing work, tests, projects, term summaries. Transparent criteria and e-diary.'},
+      'faq.q4': {'uk':'Чи можна змінювати розклад?','en':'Can the schedule be adjusted?'},
+      'faq.a4': {'uk':'Так, формуємо групи з урахуванням часових поясів і сімейної логістики.','en':'Yes, we adjust groups for time zones and family logistics.'},
+
+      'contacts.title': {'uk':'Контакти','en':'Contacts'},
+      'contacts.phone': {'uk':'Телефон','en':'Phone'},
+      'contacts.hours': {'uk':'Графік','en':'Hours'},
+      'contacts.hoursText': {'uk':'Пн–Пт 09:00–19:00, Сб 10:00–14:00','en':'Mon–Fri 09:00–19:00, Sat 10:00–14:00'},
+      'contacts.legal': {'uk':'Юридична інформація, адреса та реквізити додаються після реєстрації домену/сайту.','en':'Legal info, address and details will be added after domain/site setup.'},
+      'footer.subtitle': {'uk':'Ліцензована дистанційна освіта для учнів 1–11 класів.','en':'Licensed remote education for grades 1–11.'},
+      'footer.rights': {'uk':'Усі права захищено.','en':'All rights reserved.'}
+    };
+
+    let currentLang = 'uk';
+    const toggle = document.getElementById('lang-toggle');
+    const nodes = document.querySelectorAll('[data-i18n]');
+
+    function applyLang(lang) {
+      nodes.forEach(n => {
+        const key = n.getAttribute('data-i18n');
+        const entry = dict[key];
+        if (!entry) return;
+        const val = entry[lang];
+        if (val) n.innerHTML = val;
+      });
+      document.documentElement.lang = lang === 'uk' ? 'uk' : 'en';
+      currentLang = lang;
+    }
+
+    toggle.addEventListener('click', () => {
+      applyLang(currentLang === 'uk' ? 'en' : 'uk');
+    });
+  </script>
+</body>
+</html>
